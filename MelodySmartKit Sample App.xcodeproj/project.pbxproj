@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483FF6A41CDCECC4005B3F76 /* I2cCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A01CDCECC4005B3F76 /* I2cCommandsViewController.swift */; };
+		483FF6A71CDCECC4005B3F76 /* RemoteCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A31CDCECC4005B3F76 /* RemoteCommandsViewController.swift */; };
+		483FF6AA1CE21286005B3F76 /* OtauImageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A81CE21286005B3F76 /* OtauImageSelectionTableViewController.swift */; };
+		483FF6AB1CE21286005B3F76 /* OtauViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A91CE21286005B3F76 /* OtauViewController.swift */; };
 		48739A6B1CDA2655009A68C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A6A1CDA2655009A68C6 /* AppDelegate.swift */; };
-		48739A6D1CDA2656009A68C6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A6C1CDA2656009A68C6 /* MasterViewController.swift */; };
-		48739A6F1CDA2656009A68C6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A6E1CDA2656009A68C6 /* DetailViewController.swift */; };
+		48739A6D1CDA2656009A68C6 /* DeviceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A6C1CDA2656009A68C6 /* DeviceListController.swift */; };
+		48739A6F1CDA2656009A68C6 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A6E1CDA2656009A68C6 /* DeviceViewController.swift */; };
 		48739A721CDA2656009A68C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48739A701CDA2656009A68C6 /* Main.storyboard */; };
 		48739A741CDA2656009A68C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48739A731CDA2656009A68C6 /* Assets.xcassets */; };
 		48739A771CDA2656009A68C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48739A751CDA2656009A68C6 /* LaunchScreen.storyboard */; };
-		48739A821CDA2657009A68C6 /* MelodySmart2_Sample_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A811CDA2657009A68C6 /* MelodySmart2_Sample_AppTests.swift */; };
+		48739A821CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */; };
+		48F364A11CE62E3000B5C560 /* MelodySmartListenerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +32,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		48739A671CDA2655009A68C6 /* MelodySmart2 Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MelodySmart2 Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		483FF6A01CDCECC4005B3F76 /* I2cCommandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I2cCommandsViewController.swift; sourceTree = "<group>"; };
+		483FF6A31CDCECC4005B3F76 /* RemoteCommandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCommandsViewController.swift; sourceTree = "<group>"; };
+		483FF6A81CE21286005B3F76 /* OtauImageSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtauImageSelectionTableViewController.swift; sourceTree = "<group>"; };
+		483FF6A91CE21286005B3F76 /* OtauViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtauViewController.swift; sourceTree = "<group>"; };
+		48739A671CDA2655009A68C6 /* MelodySmartKit Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MelodySmartKit Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48739A6A1CDA2655009A68C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48739A6C1CDA2656009A68C6 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		48739A6E1CDA2656009A68C6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		48739A6C1CDA2656009A68C6 /* DeviceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListController.swift; sourceTree = "<group>"; };
+		48739A6E1CDA2656009A68C6 /* DeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		48739A711CDA2656009A68C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48739A731CDA2656009A68C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48739A761CDA2656009A68C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48739A781CDA2656009A68C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48739A7D1CDA2657009A68C6 /* MelodySmart2 Sample AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MelodySmart2 Sample AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		48739A811CDA2657009A68C6 /* MelodySmart2_Sample_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodySmart2_Sample_AppTests.swift; sourceTree = "<group>"; };
+		48739A7D1CDA2657009A68C6 /* MelodySmartKit Sample App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MelodySmartKit Sample App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodySmartKit_Sample_AppTests.swift; sourceTree = "<group>"; };
 		48739A831CDA2657009A68C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodySmartListenerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +71,8 @@
 		48739A5E1CDA2655009A68C6 = {
 			isa = PBXGroup;
 			children = (
-				48739A691CDA2655009A68C6 /* MelodySmart2 Sample App */,
-				48739A801CDA2657009A68C6 /* MelodySmart2 Sample AppTests */,
+				48739A691CDA2655009A68C6 /* MelodySmartKit Sample App */,
+				48739A801CDA2657009A68C6 /* MelodySmartKit Sample AppTests */,
 				48739A681CDA2655009A68C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,58 +80,66 @@
 		48739A681CDA2655009A68C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				48739A671CDA2655009A68C6 /* MelodySmart2 Sample App.app */,
-				48739A7D1CDA2657009A68C6 /* MelodySmart2 Sample AppTests.xctest */,
+				48739A671CDA2655009A68C6 /* MelodySmartKit Sample App.app */,
+				48739A7D1CDA2657009A68C6 /* MelodySmartKit Sample App.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		48739A691CDA2655009A68C6 /* MelodySmart2 Sample App */ = {
+		48739A691CDA2655009A68C6 /* MelodySmartKit Sample App */ = {
 			isa = PBXGroup;
 			children = (
+				48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */,
 				48739A6A1CDA2655009A68C6 /* AppDelegate.swift */,
-				48739A6C1CDA2656009A68C6 /* MasterViewController.swift */,
-				48739A6E1CDA2656009A68C6 /* DetailViewController.swift */,
+				48739A6C1CDA2656009A68C6 /* DeviceListController.swift */,
+				48739A6E1CDA2656009A68C6 /* DeviceViewController.swift */,
+				483FF6A31CDCECC4005B3F76 /* RemoteCommandsViewController.swift */,
+				483FF6A01CDCECC4005B3F76 /* I2cCommandsViewController.swift */,
+				483FF6A91CE21286005B3F76 /* OtauViewController.swift */,
+				483FF6A81CE21286005B3F76 /* OtauImageSelectionTableViewController.swift */,
 				48739A701CDA2656009A68C6 /* Main.storyboard */,
 				48739A731CDA2656009A68C6 /* Assets.xcassets */,
 				48739A751CDA2656009A68C6 /* LaunchScreen.storyboard */,
 				48739A781CDA2656009A68C6 /* Info.plist */,
 			);
+			name = "MelodySmartKit Sample App";
 			path = "MelodySmart2 Sample App";
 			sourceTree = "<group>";
 		};
-		48739A801CDA2657009A68C6 /* MelodySmart2 Sample AppTests */ = {
+		48739A801CDA2657009A68C6 /* MelodySmartKit Sample AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				48739A811CDA2657009A68C6 /* MelodySmart2_Sample_AppTests.swift */,
+				48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */,
 				48739A831CDA2657009A68C6 /* Info.plist */,
 			);
+			name = "MelodySmartKit Sample AppTests";
 			path = "MelodySmart2 Sample AppTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		48739A661CDA2655009A68C6 /* MelodySmart2 Sample App */ = {
+		48739A661CDA2655009A68C6 /* MelodySmartKit Sample App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 48739A861CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmart2 Sample App" */;
+			buildConfigurationList = 48739A861CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmartKit Sample App" */;
 			buildPhases = (
 				48739A631CDA2655009A68C6 /* Sources */,
 				48739A641CDA2655009A68C6 /* Frameworks */,
 				48739A651CDA2655009A68C6 /* Resources */,
+				48739A981CDA2F07009A68C6 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "MelodySmart2 Sample App";
+			name = "MelodySmartKit Sample App";
 			productName = "MelodySmart2 Sample App";
-			productReference = 48739A671CDA2655009A68C6 /* MelodySmart2 Sample App.app */;
+			productReference = 48739A671CDA2655009A68C6 /* MelodySmartKit Sample App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		48739A7C1CDA2657009A68C6 /* MelodySmart2 Sample AppTests */ = {
+		48739A7C1CDA2657009A68C6 /* MelodySmartKit Sample AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 48739A891CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmart2 Sample AppTests" */;
+			buildConfigurationList = 48739A891CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmartKit Sample AppTests" */;
 			buildPhases = (
 				48739A791CDA2657009A68C6 /* Sources */,
 				48739A7A1CDA2657009A68C6 /* Frameworks */,
@@ -132,9 +150,9 @@
 			dependencies = (
 				48739A7F1CDA2657009A68C6 /* PBXTargetDependency */,
 			);
-			name = "MelodySmart2 Sample AppTests";
+			name = "MelodySmartKit Sample AppTests";
 			productName = "MelodySmart2 Sample AppTests";
-			productReference = 48739A7D1CDA2657009A68C6 /* MelodySmart2 Sample AppTests.xctest */;
+			productReference = 48739A7D1CDA2657009A68C6 /* MelodySmartKit Sample App.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +174,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 48739A621CDA2655009A68C6 /* Build configuration list for PBXProject "MelodySmart2 Sample App" */;
+			buildConfigurationList = 48739A621CDA2655009A68C6 /* Build configuration list for PBXProject "MelodySmartKit Sample App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -169,8 +187,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				48739A661CDA2655009A68C6 /* MelodySmart2 Sample App */,
-				48739A7C1CDA2657009A68C6 /* MelodySmart2 Sample AppTests */,
+				48739A661CDA2655009A68C6 /* MelodySmartKit Sample App */,
+				48739A7C1CDA2657009A68C6 /* MelodySmartKit Sample AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,14 +213,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48739A981CDA2F07009A68C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MelodySmartKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		48739A631CDA2655009A68C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48739A6F1CDA2656009A68C6 /* DetailViewController.swift in Sources */,
-				48739A6D1CDA2656009A68C6 /* MasterViewController.swift in Sources */,
+				48739A6F1CDA2656009A68C6 /* DeviceViewController.swift in Sources */,
+				48739A6D1CDA2656009A68C6 /* DeviceListController.swift in Sources */,
 				48739A6B1CDA2655009A68C6 /* AppDelegate.swift in Sources */,
+				483FF6A41CDCECC4005B3F76 /* I2cCommandsViewController.swift in Sources */,
+				483FF6AB1CE21286005B3F76 /* OtauViewController.swift in Sources */,
+				483FF6A71CDCECC4005B3F76 /* RemoteCommandsViewController.swift in Sources */,
+				48F364A11CE62E3000B5C560 /* MelodySmartListenerExtensions.swift in Sources */,
+				483FF6AA1CE21286005B3F76 /* OtauImageSelectionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48739A821CDA2657009A68C6 /* MelodySmart2_Sample_AppTests.swift in Sources */,
+				48739A821CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +259,7 @@
 /* Begin PBXTargetDependency section */
 		48739A7F1CDA2657009A68C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 48739A661CDA2655009A68C6 /* MelodySmart2 Sample App */;
+			target = 48739A661CDA2655009A68C6 /* MelodySmartKit Sample App */;
 			targetProxy = 48739A7E1CDA2657009A68C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -331,10 +371,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MelodySmartKit Sample App";
 			};
 			name = Debug;
 		};
@@ -342,10 +388,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MelodySmartKit Sample App";
 			};
 			name = Release;
 		};
@@ -356,8 +408,8 @@
 				INFOPLIST_FILE = "MelodySmart2 Sample AppTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodySmart2 Sample App.app/MelodySmart2 Sample App";
+				PRODUCT_NAME = "MelodySmartKit Sample App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodySmartKit Sample App.app/MelodySmartKit Sample App";
 			};
 			name = Debug;
 		};
@@ -368,15 +420,15 @@
 				INFOPLIST_FILE = "MelodySmart2 Sample AppTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodySmart2 Sample App.app/MelodySmart2 Sample App";
+				PRODUCT_NAME = "MelodySmartKit Sample App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodySmartKit Sample App.app/MelodySmartKit Sample App";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		48739A621CDA2655009A68C6 /* Build configuration list for PBXProject "MelodySmart2 Sample App" */ = {
+		48739A621CDA2655009A68C6 /* Build configuration list for PBXProject "MelodySmartKit Sample App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				48739A841CDA2657009A68C6 /* Debug */,
@@ -385,21 +437,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		48739A861CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmart2 Sample App" */ = {
+		48739A861CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmartKit Sample App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				48739A871CDA2657009A68C6 /* Debug */,
 				48739A881CDA2657009A68C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		48739A891CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmart2 Sample AppTests" */ = {
+		48739A891CDA2657009A68C6 /* Build configuration list for PBXNativeTarget "MelodySmartKit Sample AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				48739A8A1CDA2657009A68C6 /* Debug */,
 				48739A8B1CDA2657009A68C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
