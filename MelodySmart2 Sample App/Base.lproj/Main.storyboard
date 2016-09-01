@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -23,7 +23,7 @@
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -116,7 +116,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,18 +126,18 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W13-xR-eK9">
-                                            <rect key="frame" x="523" y="12" width="42" height="20"/>
+                                            <rect key="frame" x="523.5" y="12" width="41.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,7 +181,7 @@
         <!--I2C Control-->
         <scene sceneID="aQ8-Hd-TjD">
             <objects>
-                <viewController id="zTN-fK-hCN" customClass="I2cCommandsViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zTN-fK-hCN" customClass="I2cCommandsViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V4d-9c-b6x"/>
                         <viewControllerLayoutGuide type="bottom" id="Y82-Al-xTw"/>
@@ -292,7 +292,7 @@
         <!--Remote Commands-->
         <scene sceneID="c17-jg-whj">
             <objects>
-                <viewController id="8eN-lX-T2L" customClass="RemoteCommandsViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8eN-lX-T2L" customClass="RemoteCommandsViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oHw-bD-bMX"/>
                         <viewControllerLayoutGuide type="bottom" id="0HQ-Cg-EN1"/>
@@ -331,7 +331,7 @@
         <!--Image Selection-->
         <scene sceneID="7wy-uf-Iu2">
             <objects>
-                <tableViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="formSheet" id="Y0R-W8-xl4" customClass="OtauImageSelectionTableViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="formSheet" id="Y0R-W8-xl4" customClass="OtauImageSelectionTableViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QNz-ay-ceT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,18 +341,18 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rG4-OK-5TR" id="89s-I1-kER">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9c9-J4-VeD">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tMb-mO-vsw">
-                                            <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                            <rect key="frame" x="15" y="25.5" width="30.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -377,7 +377,7 @@
         <!--OTAU-->
         <scene sceneID="HFJ-tq-xOt">
             <objects>
-                <viewController id="yaz-t1-eLG" customClass="OtauViewController" customModule="MelodySmart2_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yaz-t1-eLG" customClass="OtauViewController" customModule="MelodySmartKit_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fBI-c9-d5u"/>
                         <viewControllerLayoutGuide type="bottom" id="rUX-9g-Wvt"/>

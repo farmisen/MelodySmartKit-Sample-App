@@ -19,6 +19,10 @@
 		48739A771CDA2656009A68C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48739A751CDA2656009A68C6 /* LaunchScreen.storyboard */; };
 		48739A821CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */; };
 		48F364A11CE62E3000B5C560 /* MelodySmartListenerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */; };
+		8A8B85841D78696A00317142 /* SwiftString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8B85831D78696A00317142 /* SwiftString.framework */; };
+		8AA866E01D77C7270088667B /* MelodySmartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA866DF1D77C7270088667B /* MelodySmartKit.framework */; };
+		8AA866E31D77DF7B0088667B /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */; };
+		8AA866E51D77E3350088667B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA866E41D77E3340088667B /* Starscream.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodySmartKit_Sample_AppTests.swift; sourceTree = "<group>"; };
 		48739A831CDA2657009A68C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodySmartListenerExtensions.swift; sourceTree = "<group>"; };
+		8A8B85831D78696A00317142 /* SwiftString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftString.framework; path = Carthage/Build/iOS/SwiftString.framework; sourceTree = "<group>"; };
+		8AA866DF1D77C7270088667B /* MelodySmartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MelodySmartKit.framework; path = Carthage/Build/iOS/MelodySmartKit.framework; sourceTree = "<group>"; };
+		8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
+		8AA866E41D77E3340088667B /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AA866E01D77C7270088667B /* MelodySmartKit.framework in Frameworks */,
+				8AA866E31D77DF7B0088667B /* SwiftWebSocket.framework in Frameworks */,
+				8AA866E51D77E3350088667B /* Starscream.framework in Frameworks */,
+				8A8B85841D78696A00317142 /* SwiftString.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DE475A4170C9E0FB4C95A91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B85831D78696A00317142 /* SwiftString.framework */,
+				8AA866E41D77E3340088667B /* Starscream.framework */,
+				8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */,
+				8AA866DF1D77C7270088667B /* MelodySmartKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		48739A5E1CDA2655009A68C6 = {
 			isa = PBXGroup;
 			children = (
 				48739A691CDA2655009A68C6 /* MelodySmartKit Sample App */,
 				48739A801CDA2657009A68C6 /* MelodySmartKit Sample AppTests */,
 				48739A681CDA2655009A68C6 /* Products */,
+				1DE475A4170C9E0FB4C95A91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +151,7 @@
 				48739A641CDA2655009A68C6 /* Frameworks */,
 				48739A651CDA2655009A68C6 /* Resources */,
 				48739A981CDA2F07009A68C6 /* ShellScript */,
+				8AA866E11D77C7780088667B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -222,6 +247,24 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/MelodySmartKit.framework",
 			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		8AA866E11D77C7780088667B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SocketIO.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftWebSocket.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftString.framework",
+			);
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +420,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
 				PRODUCT_NAME = "MelodySmartKit Sample App";
@@ -394,7 +437,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
 				PRODUCT_NAME = "MelodySmartKit Sample App";

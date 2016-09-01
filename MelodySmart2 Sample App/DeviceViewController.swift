@@ -8,8 +8,19 @@
 
 import UIKit
 import MelodySmartKit
+import SwiftString
 
-class DetailViewController: UIViewController, MelodySmartDeviceListener {
+//import SwiftWebSocket
+
+import Starscream
+
+
+class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSocketDelegate, WebSocketPongDelegate {
+
+//    var ws = WebSocket(url: NSURL(string: "ws://192.168.1.235:3000/")!)
+    var ws: WebSocket?
+    var buffer = ""
+    var discardedCount = 0
 
     @IBOutlet weak var tfOutgoingData: UITextField!
     @IBOutlet weak var tfIncomingData: UITextField!
@@ -38,6 +49,7 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        self.initSocket()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -128,6 +140,23 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener {
     func melodySmartDidReceiveData(data: [UInt8], fromDevice device: MelodySmartDevice) {
         let stringData = String(bytes: data, encoding: NSUTF8StringEncoding)
         tfIncomingData.text = stringData
+        
+        self.buffer = self.buffer + stringData!
+        while (self.buffer.contains("!")) {
+            var chunks = self.buffer.split("!")
+            let chunk = chunks[0] 
+            chunks.removeAtIndex(0)
+            self.buffer = "!".join(chunks)
+            let tokens = chunk.split("/")
+
+            if (tokens.count != 14) {
+                self.discardedCount++ 
+    
+            } else {
+                self.ws!.writeString(chunk)
+                print("rcv:\(stringData!) - snt:\(chunk) - buf:\(self.buffer) - dis:\(self.discardedCount)")                     
+            }
+        }
     }
 
     func melodySmartDidReceiveCommandOutput(output: String, fromDevice device: MelodySmartDevice) {
@@ -151,5 +180,38 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener {
 
         return true
     }
+
+    // MARK: - Networking
+    func initSocket() {
+        self.ws = WebSocket(url: NSURL(string: "ws://192.168.1.235:3000/")!)
+        self.ws!.delegate = self
+        self.ws!.pongDelegate = self
+        self.ws!.connect()
+    }
+
+    func websocketDidConnect(ws: WebSocket) {
+        print("websocket is connected")
+    }
+
+    func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
+        if let e = error {
+            print("websocket is disconnected: \(e.localizedDescription)")
+        } else {
+            print("websocket disconnected")
+        }
+    }
+
+    func websocketDidReceiveMessage(ws: WebSocket, text: String) {
+        print("Received text: \(text)")
+    }
+
+    func websocketDidReceiveData(ws: WebSocket, data: NSData) {
+        print("Received data: \(data.length)")
+    }
+
+    func websocketDidReceivePong(ws: WebSocket) {
+        print("Got pong!")
+    }
+
 }
 

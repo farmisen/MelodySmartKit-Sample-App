@@ -1,2 +1,6 @@
 github "BlueCreation/MelodySmartKit" >= 1.0
+github "tidwall/SwiftWebSocket"
+github "daltoniam/Starscream" >= 1.1.3
+github "catalandres/SwiftString"
+
 
