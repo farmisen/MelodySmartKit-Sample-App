@@ -9,21 +9,60 @@
 import UIKit
 import MelodySmartKit
 import SwiftString
+import SwiftCSV
+import Chronos
 
 //import SwiftWebSocket
 
 import Starscream
 
 
-class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSocketDelegate, WebSocketPongDelegate {
-
-//    var ws = WebSocket(url: NSURL(string: "ws://192.168.1.235:3000/")!)
+class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDeviceListener, WebSocketDelegate, WebSocketPongDelegate {
     var ws: WebSocket?
     var buffer = ""
     var discardedCount = 0
+    var timer: DispatchTimer?
 
-    @IBOutlet weak var tfOutgoingData: UITextField!
+    @IBOutlet weak var serverURLTextField: UITextField!
     @IBOutlet weak var tfIncomingData: UITextField!
+    @IBOutlet weak var transmitSwitch: UISwitch!
+    @IBOutlet var fakeDataSwitch: UISwitch!
+    @IBOutlet weak var calibrateSwitch: UISwitch!
+
+    @IBOutlet weak var connectingSwitch: UISwitch!
+
+    @IBAction func onConnectingSwitchValueChanged(sender: AnyObject) {
+        if self.connectingSwitch.on {
+            self.connectingSwitch.enabled = false
+            self.initSocket()
+        } else {
+            self.ws?.writeString("CAL_OFF")
+            self.ws?.disconnect()
+            self.transmitSwitch.on = false
+            self.calibrateSwitch.on = false            
+        }
+        
+    }
+    
+    @IBAction func onTransmitSwitchValueChanged(sender: AnyObject) {
+    }
+
+
+    @IBAction func onFakeDataSwitchValueChanged(sender: AnyObject) {
+    }
+
+
+    @IBAction func onCalibrateSwitchValueChanged(sender: AnyObject) {
+        if self.calibrateSwitch.on {
+            self.ws?.writeString("CAL_ON")
+        } else {
+            self.ws?.writeString("CAL_OFF")
+        }
+    }
+
+//    @IBOutlet weak var transmitSwitch: UISwitch!
+//    @IBOutlet weak var fakeDataSwitch: UISwitch!
+//
 
     @IBOutlet weak var btnRemoteCommands: UIButton!
     @IBOutlet weak var btnI2cControl: UIButton!
@@ -37,7 +76,6 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
     }
 
     func configureView() {
-        // Update the user interface for the detail item.
         updateConnectiongStatus()
     }
 
@@ -47,9 +85,15 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-        self.initSocket()
+//        self.initSocket()
+        self.setupSampleData()
+        self.transmitSwitch.on = false
+        self.fakeDataSwitch.on = false
+        self.calibrateSwitch.on = false
+        self.connectingSwitch.on = false
+        self.serverURLTextField.text = "ws://lim.ngrok.io"
+        self.serverURLTextField.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -63,6 +107,8 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
     override func viewWillDisappear(animated: Bool) {
 //        melodyDevice!.disconnect()
         melodyDevice?.removeListener(self)
+        self.ws?.writeString("CAL_OFF")
+        self.ws?.disconnect()
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,6 +173,13 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
         }
     }
 
+    // MARK: - UITextField delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     // MARK: - MelodySmartDevice listener
 
     func melodySmartDidConnectDevice(device: MelodySmartDevice, inBootMode bootMode: (MelodySmartDevice.BootMode)) {
@@ -140,21 +193,23 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
     func melodySmartDidReceiveData(data: [UInt8], fromDevice device: MelodySmartDevice) {
         let stringData = String(bytes: data, encoding: NSUTF8StringEncoding)
         tfIncomingData.text = stringData
-        
+
         self.buffer = self.buffer + stringData!
         while (self.buffer.contains("!")) {
             var chunks = self.buffer.split("!")
-            let chunk = chunks[0] 
+            let chunk = chunks[0]
             chunks.removeAtIndex(0)
             self.buffer = "!".join(chunks)
             let tokens = chunk.split("/")
 
             if (tokens.count != 14) {
-                self.discardedCount++ 
-    
+                self.discardedCount += 1
+
             } else {
-                self.ws!.writeString(chunk)
-                print("rcv:\(stringData!) - snt:\(chunk) - buf:\(self.buffer) - dis:\(self.discardedCount)")                     
+                if (self.transmitSwitch.on && !self.fakeDataSwitch.on) {
+                    self.ws?.writeString(chunk)
+                    print("rcv:\(stringData!) - snt:\(chunk) - buf:\(self.buffer) - dis:\(self.discardedCount)")
+                }
             }
         }
     }
@@ -165,35 +220,27 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
     func melodySmartDidReceiveI2cData(data: [UInt8], fromDevice device: MelodySmartDevice, success: Bool) {
     }
 
-    // MARK: - UITextField delegate
-
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        guard textField === self.tfOutgoingData else {
-            return false
-        }
-
-        if !melodyDevice!.sendString(textField.text!) {
-            print("Send error")
-        }
-
-        textField.resignFirstResponder()
-
-        return true
-    }
 
     // MARK: - Networking
     func initSocket() {
-        self.ws = WebSocket(url: NSURL(string: "ws://192.168.1.235:3000/")!)
-        self.ws!.delegate = self
-        self.ws!.pongDelegate = self
-        self.ws!.connect()
+//        self.ws = WebSocket(url: NSURL(string: "ws://192.168.1.235:3000/")!)
+        self.ws = WebSocket(url: NSURL(string: self.serverURLTextField.text!)!)
+        self.ws?.delegate = self
+        self.ws?.pongDelegate = self
+        self.ws?.connect()
     }
 
     func websocketDidConnect(ws: WebSocket) {
         print("websocket is connected")
+        self.connectingSwitch.enabled = true
     }
 
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
+        self.transmitSwitch.on = false
+        self.calibrateSwitch.on = false
+        self.connectingSwitch.on = false
+        self.connectingSwitch.enabled = true
+        self.calibrateSwitch.on = false
         if let e = error {
             print("websocket is disconnected: \(e.localizedDescription)")
         } else {
@@ -211,6 +258,49 @@ class DetailViewController: UIViewController, MelodySmartDeviceListener, WebSock
 
     func websocketDidReceivePong(ws: WebSocket) {
         print("Got pong!")
+    }
+
+    func setupSampleData() {
+        do {
+            let fileLocation = NSBundle.mainBundle().pathForResource("sample2", ofType: "csv")!
+            let csv = try CSV(name: fileLocation)
+            var index = 1
+            print("Sample data loaded")
+            self.timer = DispatchTimer(interval: 0.25, closure: {
+                (timer: RepeatingTimer, count: Int) in
+                if (self.transmitSwitch.on && self.fakeDataSwitch.on) {
+                    print("index: \(index)")
+
+                    let row = csv.rows[index]
+
+                    let ts = row["ts"]!
+                    let ax = row["ax"]!
+                    let ay = row["ay"]!
+                    let az = row["az"]!
+                    let rvx = row["rvx"]!
+                    let rvy = row["rvy"]!
+                    let rvz = row["rvz"]!
+                    let pr1 = row["pr1"]!
+                    let pr2 = row["pr2"]!
+                    let pr3 = row["pr3"]!
+                    let pr4 = row["pr4"]!
+                    let pr5 = row["pr5"]!
+                    let pr6 = row["pr6"]!
+                    let tmp = row["tmp"]!
+                    
+                    let payload = "\(ts)/\(ax)/\(ay)/\(az)/\(rvx)/\(rvy)/\(rvz)/\(pr1)/\(pr2)/\(pr3)/\(pr4)/\(pr5)/\(pr6)/\(tmp)"
+                    self.ws?.writeString(payload)
+                    print( "smpl:\(payload)" )
+                    index = (index + 1) % csv.rows.count
+                }
+
+            })
+            self.timer?.start(true)
+        } catch {
+            print("Something bad happened: \(error)")
+        }
+
+
     }
 
 }

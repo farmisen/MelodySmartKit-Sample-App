@@ -1,4 +1,6 @@
+github "comyarzaheri/Chronos-Swift" "7450d4850db8ca098e77d20ff2fb6aea6f2ffdc4"
 github "BlueCreation/MelodySmartKit" "v1.0"
 github "daltoniam/Starscream" "1.1.3"
+github "naoty/SwiftCSV" "061e595c010b97a0af94c07afb26579a2812021c"
 github "catalandres/SwiftString" "0.6"
 github "tidwall/SwiftWebSocket" "2.6.3"

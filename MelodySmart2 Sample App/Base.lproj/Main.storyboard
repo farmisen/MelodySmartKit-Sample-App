@@ -32,48 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Incoming data" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUP-AH-BYZ">
-                                <rect key="frame" x="20" y="110" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7c-cU-tZa">
-                                <rect key="frame" x="20" y="148" width="288" height="30"/>
-                                <state key="normal" title="I2C Control">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="zTN-fK-hCN" kind="showDetail" identifier="i2c" id="ww8-99-scX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clM-Bt-uzX">
-                                <rect key="frame" x="20" y="186" width="288" height="30"/>
-                                <state key="normal" title="Remote Commands">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8eN-lX-T2L" kind="showDetail" identifier="remoteCommands" id="LuM-gW-vI8"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Outgoing Data" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1tw-f0-gUR">
-                                <rect key="frame" x="20" y="72" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="JEX-9P-axG" id="0Ws-SN-KUE"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI8-TV-fQS">
-                                <rect key="frame" x="20" y="224" width="288" height="30"/>
-                                <state key="normal" title="Over-the-air Update">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="yaz-t1-eLG" kind="showDetail" identifier="otau" id="JYE-Vd-tRo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-uJ-Amm">
-                                <rect key="frame" x="20" y="282" width="288" height="30"/>
+                                <rect key="frame" x="12" y="430" width="288" height="30"/>
                                 <state key="normal" title="Disconnect">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -81,6 +41,68 @@
                                     <action selector="btnDisconnect_TouchUpInside:" destination="JEX-9P-axG" eventType="touchUpInside" id="VI2-eq-vL0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Incoming data" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUP-AH-BYZ">
+                                <rect key="frame" x="20" y="81" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BOc-Xl-pfT">
+                                <rect key="frame" x="247" y="266" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onTransmitSwitchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="OUh-6u-kOg"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transmitting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPX-uK-J8T">
+                                <rect key="frame" x="16" y="271" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0T-5r-S5W">
+                                <rect key="frame" x="247" y="177" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onConnectingSwitchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="t47-pd-NfZ"/>
+                                    <action selector="onTransmitSwitchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="tYe-cO-Sjd"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connected to server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdB-kp-bgF">
+                                <rect key="frame" x="16" y="182" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v4H-LH-YUb">
+                                <rect key="frame" x="247" y="316" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onFakeDataSwitchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="4RB-v5-tZ3"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fake data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Z-47-soG">
+                                <rect key="frame" x="16" y="321" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v0U-qe-HBv">
+                                <rect key="frame" x="247" y="369" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onCalibrateSwitchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="wst-hg-apr"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calibrating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcd-NU-0US">
+                                <rect key="frame" x="16" y="374" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="server URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZ8-64-wdu">
+                                <rect key="frame" x="12" y="216" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="svH-Pt-448" id="lla-Pd-5Mj"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -88,11 +110,12 @@
                     <navigationItem key="navigationItem" title="Device View" id="mOI-FS-AaM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="btnI2cControl" destination="H7c-cU-tZa" id="N6L-QP-gqO"/>
-                        <outlet property="btnOTAU" destination="DI8-TV-fQS" id="Ca4-JE-pEy"/>
-                        <outlet property="btnRemoteCommands" destination="clM-Bt-uzX" id="K5t-PD-gzf"/>
+                        <outlet property="calibrateSwitch" destination="v0U-qe-HBv" id="p6M-Ly-but"/>
+                        <outlet property="connectingSwitch" destination="K0T-5r-S5W" id="goV-Pm-AEs"/>
+                        <outlet property="fakeDataSwitch" destination="v4H-LH-YUb" id="zTr-BK-M88"/>
+                        <outlet property="serverURLTextField" destination="pZ8-64-wdu" id="k73-Ou-e7E"/>
                         <outlet property="tfIncomingData" destination="sUP-AH-BYZ" id="gUv-cY-OCY"/>
-                        <outlet property="tfOutgoingData" destination="1tw-f0-gUR" id="gAm-dZ-XLA"/>
+                        <outlet property="transmitSwitch" destination="BOc-Xl-pfT" id="5Ed-O2-sBr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -187,7 +210,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Y82-Al-xTw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qUU-Tz-9sn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-Ga-zfc">
@@ -298,7 +321,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0HQ-Cg-EN1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aMH-i3-r5R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-Pw-uPS">

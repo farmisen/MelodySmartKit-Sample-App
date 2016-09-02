@@ -19,6 +19,10 @@
 		48739A771CDA2656009A68C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48739A751CDA2656009A68C6 /* LaunchScreen.storyboard */; };
 		48739A821CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */; };
 		48F364A11CE62E3000B5C560 /* MelodySmartListenerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */; };
+		8A5097871D79105700F71831 /* Chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5097851D79105700F71831 /* Chronos.framework */; };
+		8A5097881D79105700F71831 /* SwiftCSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5097861D79105700F71831 /* SwiftCSV.framework */; };
+		8A50978B1D79143400F71831 /* sample.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8A50978A1D79143400F71831 /* sample.csv */; };
+		8A50978D1D797A9100F71831 /* sample2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8A50978C1D797A9100F71831 /* sample2.csv */; };
 		8A8B85841D78696A00317142 /* SwiftString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8B85831D78696A00317142 /* SwiftString.framework */; };
 		8AA866E01D77C7270088667B /* MelodySmartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA866DF1D77C7270088667B /* MelodySmartKit.framework */; };
 		8AA866E31D77DF7B0088667B /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */; };
@@ -52,6 +56,12 @@
 		48739A811CDA2657009A68C6 /* MelodySmartKit_Sample_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodySmartKit_Sample_AppTests.swift; sourceTree = "<group>"; };
 		48739A831CDA2657009A68C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelodySmartListenerExtensions.swift; sourceTree = "<group>"; };
+		8A5097811D79104300F71831 /* Chronos.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Chronos.framework.dSYM; path = Carthage/Build/iOS/Chronos.framework.dSYM; sourceTree = "<group>"; };
+		8A5097831D79104600F71831 /* SwiftCSV.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftCSV.framework.dSYM; path = Carthage/Build/iOS/SwiftCSV.framework.dSYM; sourceTree = "<group>"; };
+		8A5097851D79105700F71831 /* Chronos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chronos.framework; path = Carthage/Build/iOS/Chronos.framework; sourceTree = "<group>"; };
+		8A5097861D79105700F71831 /* SwiftCSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCSV.framework; path = Carthage/Build/iOS/SwiftCSV.framework; sourceTree = "<group>"; };
+		8A50978A1D79143400F71831 /* sample.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.csv; sourceTree = "<group>"; };
+		8A50978C1D797A9100F71831 /* sample2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample2.csv; sourceTree = "<group>"; };
 		8A8B85831D78696A00317142 /* SwiftString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftString.framework; path = Carthage/Build/iOS/SwiftString.framework; sourceTree = "<group>"; };
 		8AA866DF1D77C7270088667B /* MelodySmartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MelodySmartKit.framework; path = Carthage/Build/iOS/MelodySmartKit.framework; sourceTree = "<group>"; };
 		8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
@@ -67,6 +77,8 @@
 				8AA866E31D77DF7B0088667B /* SwiftWebSocket.framework in Frameworks */,
 				8AA866E51D77E3350088667B /* Starscream.framework in Frameworks */,
 				8A8B85841D78696A00317142 /* SwiftString.framework in Frameworks */,
+				8A5097871D79105700F71831 /* Chronos.framework in Frameworks */,
+				8A5097881D79105700F71831 /* SwiftCSV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,10 @@
 		1DE475A4170C9E0FB4C95A91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A5097851D79105700F71831 /* Chronos.framework */,
+				8A5097861D79105700F71831 /* SwiftCSV.framework */,
+				8A5097831D79104600F71831 /* SwiftCSV.framework.dSYM */,
+				8A5097811D79104300F71831 /* Chronos.framework.dSYM */,
 				8A8B85831D78696A00317142 /* SwiftString.framework */,
 				8AA866E41D77E3340088667B /* Starscream.framework */,
 				8AA866E21D77DF7B0088667B /* SwiftWebSocket.framework */,
@@ -113,6 +129,7 @@
 		48739A691CDA2655009A68C6 /* MelodySmartKit Sample App */ = {
 			isa = PBXGroup;
 			children = (
+				8A5097891D79143400F71831 /* data */,
 				48F364A01CE62E3000B5C560 /* MelodySmartListenerExtensions.swift */,
 				48739A6A1CDA2655009A68C6 /* AppDelegate.swift */,
 				48739A6C1CDA2656009A68C6 /* DeviceListController.swift */,
@@ -138,6 +155,15 @@
 			);
 			name = "MelodySmartKit Sample AppTests";
 			path = "MelodySmart2 Sample AppTests";
+			sourceTree = "<group>";
+		};
+		8A5097891D79143400F71831 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				8A50978C1D797A9100F71831 /* sample2.csv */,
+				8A50978A1D79143400F71831 /* sample.csv */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +251,9 @@
 			files = (
 				48739A771CDA2656009A68C6 /* LaunchScreen.storyboard in Resources */,
 				48739A741CDA2656009A68C6 /* Assets.xcassets in Resources */,
+				8A50978B1D79143400F71831 /* sample.csv in Resources */,
 				48739A721CDA2656009A68C6 /* Main.storyboard in Resources */,
+				8A50978D1D797A9100F71831 /* sample2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +291,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftWebSocket.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftString.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftCSV.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chronos.framework",
 			);
 			name = Carthage;
 			outputPaths = (
