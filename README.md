@@ -1,12 +1,11 @@
-# MelodySmartKit Sample App
+# LIM iOS data hub
 
-This sample app demonstrates how to integrate and use the MelodySmartKit framework for communicating with BlueCreation's MelodySmart product line.
+This sample app demonstrates how to collect data from a melody supported bluetooth le module and forward it to a websocket
 
 ## Installation
 
 1. Clone
 2. Install [Carthage](https://github.com/Carthage/Carthage)
 3. Run `carthage update`
-4. Drag the built .framework in the project
-5. Run the app
+4. Run the app
 
