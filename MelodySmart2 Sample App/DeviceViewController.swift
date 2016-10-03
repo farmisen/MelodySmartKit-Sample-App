@@ -8,7 +8,8 @@
 
 import UIKit
 import MelodySmartKit
-import SwiftString
+//import SwiftString
+import Foundation
 import SwiftCSV
 import Chronos
 
@@ -22,6 +23,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
     var buffer = ""
     var discardedCount = 0
     var timer: DispatchTimer?
+    var index = 0
 
     @IBOutlet weak var serverURLTextField: UITextField!
     @IBOutlet weak var tfIncomingData: UITextField!
@@ -31,6 +33,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
 
     @IBOutlet weak var connectingSwitch: UISwitch!
 
+    @IBAction func onResetTouched(sender: AnyObject) {
+        self.ws?.writeString("RST")
+        self.index = 1
+        self.calibrateSwitch.on = false 
+    }
+    
     @IBAction func onConnectingSwitchValueChanged(sender: AnyObject) {
         if self.connectingSwitch.on {
             self.connectingSwitch.enabled = false
@@ -79,10 +87,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
         updateConnectiongStatus()
     }
 
-    @IBAction func btnDisconnect_TouchUpInside(sender: AnyObject) {
-        melodyDevice?.disconnect()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
@@ -91,21 +95,27 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
         self.transmitSwitch.on = false
         self.fakeDataSwitch.on = false
         self.calibrateSwitch.on = false
+        self.transmitSwitch.enabled = false
+        self.fakeDataSwitch.enabled = false
+        self.calibrateSwitch.enabled = false
         self.connectingSwitch.on = false
-        self.serverURLTextField.text = "ws://lim.ngrok.io"
+        self.serverURLTextField.text = "ws://lim-dashboard.herokuapp.com"
+//        self.serverURLTextField.text = "ws://lim.ngrok.io"
         self.serverURLTextField.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
         melodyDevice?.addListener(self)
-
-        if (melodyDevice!.state == .Disconnected) {
-            connectDevice()
+        
+        if let device = melodyDevice {
+            if (device.state == .Disconnected) {
+                connectDevice()
+            }
         }
     }
 
     override func viewWillDisappear(animated: Bool) {
-//        melodyDevice!.disconnect()
+        melodyDevice?.disconnect()
         melodyDevice?.removeListener(self)
         self.ws?.writeString("CAL_OFF")
         self.ws?.disconnect()
@@ -126,26 +136,29 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
         let buttonEnabled: Bool
         let status: String
 
-        switch melodyDevice!.state {
-        case .Connected:
-            status = "Connected"
-            buttonEnabled = true
+        
+        if let device = melodyDevice {
+            switch device.state {
+            case .Connected:
+                status = "Connected"
+                buttonEnabled = true
 
-        case .Connecting:
-            status = "Connecting..."
-            buttonEnabled = false
+            case .Connecting:
+                status = "Connecting..."
+                buttonEnabled = false
 
-        case .Disconnecting:
-            status = "Disconnecting..."
-            buttonEnabled = false
+            case .Disconnecting:
+                status = "Disconnecting..."
+                buttonEnabled = false
 
-        case .Disconnected:
-            status = "Disconnected"
-            buttonEnabled = false
+            case .Disconnected:
+                status = "Disconnected"
+                buttonEnabled = false
+            }
+
+            enableButtons(buttonEnabled)
+            title = "\(device.name ?? "<Unknown>") (\(status))"
         }
-
-        enableButtons(buttonEnabled)
-        title = "\(melodyDevice!.name ?? "<Unknown>") (\(status))"
     }
 
     func connectDevice() {
@@ -193,14 +206,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
     func melodySmartDidReceiveData(data: [UInt8], fromDevice device: MelodySmartDevice) {
         let stringData = String(bytes: data, encoding: NSUTF8StringEncoding)
         tfIncomingData.text = stringData
+        print("RCV:\(stringData!)")
 
         self.buffer = self.buffer + stringData!
-        while (self.buffer.contains("!")) {
-            var chunks = self.buffer.split("!")
+        while (self.buffer.containsString("!")) {
+            var chunks = self.buffer.componentsSeparatedByString("!")
             let chunk = chunks[0]
             chunks.removeAtIndex(0)
-            self.buffer = "!".join(chunks)
-            let tokens = chunk.split("/")
+            self.buffer = chunks.joinWithSeparator("!")
+            let tokens = chunk.componentsSeparatedByString("/")
 
             if (tokens.count != 14) {
                 self.discardedCount += 1
@@ -215,6 +229,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
     }
 
     func melodySmartDidReceiveCommandOutput(output: String, fromDevice device: MelodySmartDevice) {
+        print("CMD:\(output)")
     }
 
     func melodySmartDidReceiveI2cData(data: [UInt8], fromDevice device: MelodySmartDevice, success: Bool) {
@@ -233,12 +248,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
     func websocketDidConnect(ws: WebSocket) {
         print("websocket is connected")
         self.connectingSwitch.enabled = true
+        self.transmitSwitch.enabled = true
+        self.fakeDataSwitch.enabled = true
+        self.calibrateSwitch.enabled = true
     }
 
     func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         self.transmitSwitch.on = false
         self.calibrateSwitch.on = false
         self.connectingSwitch.on = false
+        self.transmitSwitch.enabled = false
+        self.fakeDataSwitch.enabled = false
+        self.calibrateSwitch.enabled = false
         self.connectingSwitch.enabled = true
         self.calibrateSwitch.on = false
         if let e = error {
@@ -262,16 +283,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
 
     func setupSampleData() {
         do {
-            let fileLocation = NSBundle.mainBundle().pathForResource("sample2", ofType: "csv")!
+            let fileLocation = NSBundle.mainBundle().pathForResource("sample3", ofType: "csv")!
             let csv = try CSV(name: fileLocation)
-            var index = 1
+            self.index = 1
             print("Sample data loaded")
             self.timer = DispatchTimer(interval: 0.25, closure: {
                 (timer: RepeatingTimer, count: Int) in
                 if (self.transmitSwitch.on && self.fakeDataSwitch.on) {
-                    print("index: \(index)")
-
-                    let row = csv.rows[index]
+                    let row = csv.rows[self.index]
 
                     let ts = row["ts"]!
                     let ax = row["ax"]!
@@ -291,7 +310,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MelodySmartDe
                     let payload = "\(ts)/\(ax)/\(ay)/\(az)/\(rvx)/\(rvy)/\(rvz)/\(pr1)/\(pr2)/\(pr3)/\(pr4)/\(pr5)/\(pr6)/\(tmp)"
                     self.ws?.writeString(payload)
                     print( "smpl:\(payload)" )
-                    index = (index + 1) % csv.rows.count
+                    self.index = (self.index + 1) % csv.rows.count
                 }
 
             })

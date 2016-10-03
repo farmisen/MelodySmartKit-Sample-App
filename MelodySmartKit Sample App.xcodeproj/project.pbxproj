@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37AE468FA3C00C83EF54D8DF /* sample3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 37AE4FF19A036B31B710806B /* sample3.csv */; };
 		483FF6A41CDCECC4005B3F76 /* I2cCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A01CDCECC4005B3F76 /* I2cCommandsViewController.swift */; };
 		483FF6A71CDCECC4005B3F76 /* RemoteCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A31CDCECC4005B3F76 /* RemoteCommandsViewController.swift */; };
 		483FF6AA1CE21286005B3F76 /* OtauImageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF6A81CE21286005B3F76 /* OtauImageSelectionTableViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37AE4FF19A036B31B710806B /* sample3.csv */ = {isa = PBXFileReference; lastKnownFileType = file.csv; path = sample3.csv; sourceTree = "<group>"; };
 		483FF6A01CDCECC4005B3F76 /* I2cCommandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I2cCommandsViewController.swift; sourceTree = "<group>"; };
 		483FF6A31CDCECC4005B3F76 /* RemoteCommandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCommandsViewController.swift; sourceTree = "<group>"; };
 		483FF6A81CE21286005B3F76 /* OtauImageSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtauImageSelectionTableViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				8A50978C1D797A9100F71831 /* sample2.csv */,
 				8A50978A1D79143400F71831 /* sample.csv */,
+				37AE4FF19A036B31B710806B /* sample3.csv */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				TargetAttributes = {
 					48739A661CDA2655009A68C6 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = DFF6TQURPH;
 					};
 					48739A7C1CDA2657009A68C6 = {
 						CreatedOnToolsVersion = 7.3;
@@ -254,6 +258,7 @@
 				8A50978B1D79143400F71831 /* sample.csv in Resources */,
 				48739A721CDA2656009A68C6 /* Main.storyboard in Resources */,
 				8A50978D1D797A9100F71831 /* sample2.csv in Resources */,
+				37AE468FA3C00C83EF54D8DF /* sample3.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -433,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -444,16 +449,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
 				PRODUCT_NAME = "MelodySmartKit Sample App";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -461,16 +469,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MelodySmart2 Sample App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluecreation.MelodySmart2-Sample-App";
 				PRODUCT_NAME = "MelodySmartKit Sample App";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
